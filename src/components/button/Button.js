@@ -1,3 +1,13 @@
+import PropTypes from 'prop-types';
+
+/**
+ * A button component that displays content and handles button types.
+ *
+ * @param {Object} props - The properties for the button component.
+ * @param {'button'|'submit'|'reset'} props.type - The type of the button (button, submit, reset).
+ * @param {React.ReactNode} props.children - The content inside the button (usually text or other elements).
+ * @returns {JSX.Element} The rendered button component.
+ */
 function Button({ type, children }) {
   return (
     <button
@@ -8,5 +18,10 @@ function Button({ type, children }) {
     </button>
   );
 }
+
+Button.propTypes = {
+  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default Button;

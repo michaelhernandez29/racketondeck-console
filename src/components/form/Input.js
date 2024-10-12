@@ -1,3 +1,16 @@
+import PropTypes from 'prop-types';
+
+/**
+ * An input component for forms, handling various input types.
+ *
+ * @param {Object} props - The properties for the input component.
+ * @param {string} props.id - The unique identifier for the input field.
+ * @param {string} props.name - The name attribute for the input field.
+ * @param {string} props.type - The type of input (e.g., text, email, password).
+ * @param {string} [props.placeholder] - The placeholder text for the input field.
+ * @param {boolean} [props.required] - Whether the input is required or not.
+ * @returns {JSX.Element} The rendered input component.
+ */
 function Input({ id, name, type, placeholder, required }) {
   return (
     <input
@@ -10,5 +23,13 @@ function Input({ id, name, type, placeholder, required }) {
     />
   );
 }
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+};
 
 export default Input;

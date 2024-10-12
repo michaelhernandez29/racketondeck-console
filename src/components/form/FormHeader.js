@@ -1,3 +1,13 @@
+import PropTypes from 'prop-types';
+
+/**
+ * A header component for forms, displaying a title and a subtitle.
+ *
+ * @param {Object} props - The properties for the form header component.
+ * @param {string} props.title - The main title to be displayed.
+ * @param {string} [props.subtitle] - The optional subtitle to be displayed.
+ * @returns {JSX.Element} The rendered form header component.
+ */
 function FormHeader({ title, subtitle }) {
   return (
     <header className="space-y-2 text-center">
@@ -8,5 +18,10 @@ function FormHeader({ title, subtitle }) {
     </header>
   );
 }
+
+FormHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+};
 
 export default FormHeader;

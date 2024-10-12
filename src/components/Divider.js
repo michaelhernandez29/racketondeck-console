@@ -1,14 +1,24 @@
-function Divider({ text }) {
+import PropTypes from 'prop-types';
+
+/**
+ * A label component for form elements, associating the label with a form control.
+ *
+ * @param {Object} props - The properties for the label component.
+ * @param {string} props.htmlFor - The id of the form control that the label is associated with.
+ * @param {React.ReactNode} props.children - The content inside the label (usually text).
+ * @returns {JSX.Element} The rendered label component.
+ */
+function Label({ htmlFor, children }) {
   return (
-    <div className="relative my-6">
-      <div className="absolute inset-0 flex items-center">
-        <span className="w-full border-t" />
-      </div>
-      <div className="relative flex justify-center text-xs">
-        <span className="bg-background px-2 text-muted-foreground text-gray-500 dark:text-gray-400">{text}</span>
-      </div>
-    </div>
+    <label htmlFor={htmlFor} className="block text-sm font-medium text-gray-700">
+      {children}
+    </label>
   );
 }
 
-export default Divider;
+Label.propTypes = {
+  htmlFor: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+export default Label;

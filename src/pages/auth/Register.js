@@ -4,6 +4,11 @@ import Input from '../../components/form/Input';
 import Label from '../../components/form/Label';
 import AuthWrapper from '../../components/wrappers/AuthWrapper';
 
+/**
+ * The registration form component for RacketOnDeck, allowing users to register their academy.
+ *
+ * @returns {JSX.Element} The rendered registration form component.
+ */
 function Register() {
   return (
     <AuthWrapper title="RacketOnDeck" subtitle="Register your academy and start managing your sports facility">
