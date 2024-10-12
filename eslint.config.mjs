@@ -7,7 +7,7 @@ import globals from 'globals';
 export default [
   {
     languageOptions: {
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
       parserOptions: {
         ecmaVersion: 2021,
         sourceType: 'module',
