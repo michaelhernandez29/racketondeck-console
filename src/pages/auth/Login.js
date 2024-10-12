@@ -1,9 +1,9 @@
-import { StatusCodes } from 'http-status-codes';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-import AccountService from '../../api/services/AccountService';
+import { StatusCodes } from 'http-status-codes';
+import AuthService from '../../api/services/AuthService';
 import Button from '../../components/button/Button';
 import FormControl from '../../components/form/FormControl';
 import Input from '../../components/form/Input';
@@ -11,12 +11,12 @@ import Label from '../../components/form/Label';
 import AuthWrapper from '../../components/wrappers/AuthWrapper';
 
 /**
- * The registration form component for RacketOnDeck, allowing users to register their academy.
+ * The login form component for user authentication.
  *
- * @returns {JSX.Element} The rendered registration form component.
+ * @returns {JSX.Element} The rendered login form component.
  */
-function Register() {
-  const [dataForm, setDataForm] = useState({ name: '', email: '', password: '' });
+function Login() {
+  const [dataForm, setDataForm] = useState({ email: '', password: '' });
 
   /**
    * Handles input changes and updates the form data.
@@ -41,31 +41,18 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await AccountService.create(dataForm);
-    if (response.statusCode !== StatusCodes.CREATED) {
+    const response = await AuthService.login(dataForm);
+    if (response.statusCode !== StatusCodes.OK) {
       toast.error(response.message);
       return;
     }
 
-    toast.success('Account created successfully!');
+    toast.success('Logged successfully!');
   };
 
   return (
-    <AuthWrapper title="RacketOnDeck" subtitle="Register your academy and start managing your sports facility">
+    <AuthWrapper title="Welcome Back!" subtitle="Login manage your academy">
       <form onSubmit={handleSubmit}>
-        <FormControl>
-          <Label htmlFor="name">Name</Label>
-          <Input
-            id="name"
-            name="name"
-            type="text"
-            value={dataForm.name}
-            onChange={handleChange}
-            placeholder="Your Academy Name"
-            required
-          />
-        </FormControl>
-
         <FormControl>
           <Label htmlFor="email">Email</Label>
           <Input
@@ -91,21 +78,21 @@ function Register() {
           />
         </FormControl>
 
-        <Button type="submit">Create account</Button>
+        <Button type="submit">Login</Button>
       </form>
 
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={true} theme="colored" />
-
       <div className="mt-4 text-center text-sm">
-        <p className="mb-4">
-          Already have an account?
-          <Link to="/login" className="ml-1 text-blue-600 ">
-            Login
+        <p>
+          Not have an account?
+          <Link to="/register" className="ml-1 text-blue-600">
+            Create one
           </Link>
         </p>
       </div>
+
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={true} theme="colored" />
     </AuthWrapper>
   );
 }
 
-export default Register;
+export default Login;
