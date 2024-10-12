@@ -20,8 +20,13 @@ const HttpClient = axios.create({
  * @param {import('axios').AxiosResponse} response - The full Axios response object.
  * @returns {any} The `data` property of the response.
  */
-HttpClient.interceptors.response.use(response => {
-  return response.data;
-});
+HttpClient.interceptors.response.use(
+  (response) => {
+    return response.data;
+  },
+  (error) => {
+    return error.response.data;
+  }
+);
 
 export default HttpClient;
