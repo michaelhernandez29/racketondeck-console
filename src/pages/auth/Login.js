@@ -51,7 +51,7 @@ function Login() {
   };
 
   return (
-    <AuthWrapper title="Welcome Back!" subtitle="Login manage your academy">
+    <AuthWrapper title="Welcome Back!" subtitle="Login to manage your academy">
       <form onSubmit={handleSubmit}>
         <FormControl>
           <Label htmlFor="email">Email</Label>
