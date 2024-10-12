@@ -1,4 +1,8 @@
-import Register from './pages/auth/Register';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import routes from './routes';
+
+const router = createBrowserRouter(routes);
 
 /**
  * The main application component, rendering the registration page.
@@ -8,7 +12,7 @@ import Register from './pages/auth/Register';
 function App() {
   return (
     <div className="App">
-      <Register />
+      <RouterProvider router={router} />
     </div>
   );
 }

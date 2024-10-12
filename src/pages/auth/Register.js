@@ -16,7 +16,6 @@ import AuthWrapper from '../../components/wrappers/AuthWrapper';
  */
 function Register() {
   const [dataForm, setDataForm] = useState({ name: '', email: '', password: '' });
-  const [error, setError] = useState(null);
 
   /**
    * Handles input changes and updates the form data.

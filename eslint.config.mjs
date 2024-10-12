@@ -36,10 +36,10 @@ export default [
     rules: {
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'error',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'error',
       'react/jsx-uses-react': 'off',
-      'jsdoc/check-tag-names': 'warn',
-      'jsdoc/check-param-names': 'warn',
+      'jsdoc/check-tag-names': 'error',
+      'jsdoc/check-param-names': 'error',
       'jsdoc/require-jsdoc': [
         'error',
         {
