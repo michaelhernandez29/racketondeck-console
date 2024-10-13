@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 import AccountService from '../../api/services/AccountService';
-import Button from '../../components/button/Button';
-import FormControl from '../../components/form/FormControl';
-import Input from '../../components/form/Input';
-import Label from '../../components/form/Label';
+
+import Button from '../../components/common/button/Button';
+import FormControl from '../../components/common/form/FormControl';
+import Input from '../../components/common/form/Input';
+import Label from '../../components/common/form/Label';
 import AuthWrapper from '../../components/wrappers/AuthWrapper';
 
 /**

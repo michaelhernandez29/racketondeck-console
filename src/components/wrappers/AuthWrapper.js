@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import FormHeader from '../form/FormHeader';
+import FormHeader from '../common/form/FormHeader';
 
 /**
  * A wrapper component for authentication-related pages, displaying a title, subtitle, and content.
